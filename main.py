@@ -5,6 +5,7 @@ import utils
 
 
 root = Tk()
+root.configure(bg = 'black')
 root.geometry(f'{settings.WIDTH}x{settings.HEIGHT}')
 root.title('Minesweeper')
 root.resizable(False, False)
@@ -53,8 +54,8 @@ for x in range(settings.GRID_SIZE):
 Cell.randomize_mines()
 
 #tests that we have random "mines"
-for c in Cell.all:
-  print(c.is_mine)
+# for c in Cell.all:
+#   print(c.is_mine)
 
 #Run the window
 root.mainloop()
