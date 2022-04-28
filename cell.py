@@ -10,8 +10,8 @@ class Cell:
       location,
       text = 'Text'
     )
-    btn.bind('<Button-1>', self.left_click_actions )
-    btn.bind('<Button-2>', self.right_click_actions ) # Left click convention
+    btn.bind('<Button-1>', self.left_click_actions ) # Left click convention
+    btn.bind('<Button-2>', self.right_click_actions ) # Right click convention
     self.cell_btn_object = btn
   
   def left_click_actions(self, event):
