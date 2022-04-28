@@ -47,6 +47,15 @@ for x in range(settings.GRID_SIZE):
       column = x, row = y
     )
 
-#Run the wind
+#Testing to see if the list has been instantiated with our x and y attributes
+#print(len(Cell.all))
+
+Cell.randomize_mines()
+
+#tests that we have random "mines"
+for c in Cell.all:
+  print(c.is_mine)
+
+#Run the window
 root.mainloop()
 
