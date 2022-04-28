@@ -12,7 +12,7 @@ root.resizable(False, False)
 # Frames for the game space; top, left, and center
 top_frame = Frame(
   root,
-  bg = 'red', 
+  bg = 'black', 
   width = settings.WIDTH,
   height = utils.height_prct(25)
 )
@@ -20,7 +20,7 @@ top_frame.place(x=0, y=0)
 
 left_frame = Frame(
   root,
-  bg = "blue",
+  bg = "black",
   width = utils.width_prct(25),
   height = utils.height_prct(75)
 )
