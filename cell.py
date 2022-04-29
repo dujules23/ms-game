@@ -37,7 +37,17 @@ class Cell:
         return cell
 
   def show_cell(self):
-    print(self.get_cell_by_axis(0,0))
+    surrounded_cells = [
+      self.get_cell_by_axis(self.x - 1, self.y -1),
+      self.get_cell_by_axis(self.x - 1, self.y),
+      self.get_cell_by_axis(self.x - 1, self.y + 1),
+      self.get_cell_by_axis(self.x, self.y - 1),
+      self.get_cell_by_axis(self.x + 1, self.y - 1),
+      self.get_cell_by_axis(self.x + 1, self.y),
+      self.get_cell_by_axis(self.x + 1, self.y + 1),
+      self.get_cell_by_axis(self.x, self.y + 1)
+    ]
+    print(surrounded_cells)
 
   def show_mine(self):
     # Logic to interrupt the game and display a message that player lost! 
