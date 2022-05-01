@@ -51,6 +51,10 @@ for x in range(settings.GRID_SIZE):
 #Testing to see if the list has been instantiated with our x and y attributes
 #print(len(Cell.all))
 
+# Call the label from the Cell class
+Cell.create_cell_count_label(left_frame)
+Cell.cell_count_label_object.place(x = 0, y = 0)
+
 Cell.randomize_mines()
 
 #tests that we have random "mines"
