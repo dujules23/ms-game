@@ -10,4 +10,4 @@ def width_prct(percentage):
 
 # print(height_prct(25))
 
-print(width_prct(25))
+#print(width_prct(25))
