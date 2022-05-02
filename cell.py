@@ -1,6 +1,8 @@
 from tkinter import Button, Label
 import random
 import settings
+import ctypes
+import sys
 
 class Cell:
   all = []
@@ -91,17 +93,33 @@ class Cell:
         Cell.cell_count_label_object.configure(
           text = f"Cells Left:{Cell.cell_count}"
         )
+      # If this was a mine candidate, then for safety, we should
+      # configure the background color to SystenButtonFace 
+      self.cell_btn_object.configure(
+        highlightbackground = "SystemButtonFace"
+      ) 
     # Mark the cell as opened(Use is as the last line of the method)
     self.is_opened = True
 
   def show_mine(self):
     # Logic to interrupt the game and display a message that player lost! 
-    # on mac highlightbackground seems to work more consistently
     self.cell_btn_object.configure(highlightbackground ='red')
+    ctypes.windll.user32.MessageBoxW(0, 'You clicked on a mine', 'Game Over', 0)
+    # on mac highlightbackground seems to work more consistently
+    sys.exit()
+   
 
   def right_click_actions(self, event):
-    print(event)
-    print("I am right clicked!")
+    if not self.is_mine_candidate:
+      self.cell_btn_object.configure(
+        highlightbackground = 'orange'
+      )
+      self.is_mine_candidate = True
+    else:
+      self.cell_btn_object.configure(
+        highlightbackground = 'black'
+      )
+      self.is_mine_candidate = False
 
   @staticmethod
   def randomize_mines():
