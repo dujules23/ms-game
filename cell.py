@@ -9,6 +9,7 @@ class Cell:
   def __init__(self, x, y, is_mine = False):
       self.is_mine = is_mine 
       self.is_opened = False
+      self.is_mine_candidate = False
       self.cell_btn_object = None
       self.x = x
       self.y = y
