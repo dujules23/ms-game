@@ -13,7 +13,7 @@ I did this project on an M1 Mac Mini so there are a few things that were not sup
 
 # Stack Used
 
--Python 3.10.0
--tkinter
+- Python 3.10.0
+- tkinter
 
 
