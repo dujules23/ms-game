@@ -1,7 +1,6 @@
-from tkinter import Button, Label
+from tkinter import Button, Label, messagebox
 import random
 import settings
-import ctypes
 import sys
 
 class Cell:
@@ -96,7 +95,7 @@ class Cell:
       # If this was a mine candidate, then for safety, we should
       # configure the background color to SystenButtonFace 
       self.cell_btn_object.configure(
-        highlightbackground = "SystemButtonFace"
+        highlightbackground = "black"
       ) 
     # Mark the cell as opened(Use is as the last line of the method)
     self.is_opened = True
@@ -104,10 +103,10 @@ class Cell:
   def show_mine(self):
     # Logic to interrupt the game and display a message that player lost! 
     self.cell_btn_object.configure(highlightbackground ='red')
-    ctypes.windll.user32.MessageBoxW(0, 'You clicked on a mine', 'Game Over', 0)
     # on mac highlightbackground seems to work more consistently
+    messagebox.showinfo('Game Over', 'You Clicked a Mine')
     sys.exit()
-   
+
 
   def right_click_actions(self, event):
     if not self.is_mine_candidate:
