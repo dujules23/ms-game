@@ -50,6 +50,13 @@ class Cell:
         for cell_obj in self.surrounded_cells:
           cell_obj.show_cell()
       self.show_cell()
+      # If mine count is equal to the cells left count, player won
+      if Cell.cell_count == settings.MINES_COUNT:
+        messagebox.showinfo('Game Over', 'Congratulations! You won the game!')
+    
+    # Cancel Left and Right click events if cell is already opened:
+    self.cell_btn_object.unbind('<Button-1>')
+    self.cell_btn_object.unbind('<Button-2>')
 
   def get_cell_by_axis(self, x,y):
     # Return a cell object based on the value of x,y
@@ -93,7 +100,7 @@ class Cell:
           text = f"Cells Left:{Cell.cell_count}"
         )
       # If this was a mine candidate, then for safety, we should
-      # configure the background color to SystenButtonFace 
+      # configure the background color to black 
       self.cell_btn_object.configure(
         highlightbackground = "black"
       ) 
